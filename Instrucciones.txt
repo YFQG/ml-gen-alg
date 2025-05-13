@@ -1,0 +1,5 @@
+1. Configurar el set up de la librería con setuptools, importante nombre y version para que se cargue en repositorio, es importante también el Readme.md.
+2. Crear el __init__.py para llamar las funciones.
+3. Crear carpeta con funciones que se llamaran.
+4. instalar twine wheel, que sirve para empaquertar paquetes con el comando python setup.py sdist bdist_wheel, puede requerir instalar setuptools.
+5. 
