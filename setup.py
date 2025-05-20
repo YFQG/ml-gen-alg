@@ -6,9 +6,9 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="ml-gen-alg",
-    version="1.0.5",
+    version="1.0.7",
     author="Nicolas Torres & Yamid Quiroga",
-    author_email="yfquiroga@ucundinamarca.edu.co",
+    author_email="nicolasrodriguezt@ucundinamarca.edu.co, yfquiroga@ucundinamarca.edu.co",
     description="Una librería de algoritmos genéticos en Python",
     long_description=long_description,
     long_description_content_type="text/markdown",

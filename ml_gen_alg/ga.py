@@ -112,10 +112,19 @@ class GA:
         best_history = []
 
         for generation in range(self.num_generations):
-            try:
-                fitnesses = [self.fitness_func(ind) for ind in self.population]
-            except TypeError:
-                fitnesses = [self.fitness_func(ind, idx) for idx, ind in enumerate(self.population)]
+            # Adaptar cada individuo antes de pasarlo a la función fitness
+            fitnesses = []
+            for ind in self.population:
+                # Si el individuo es una lista, convertirlo en un valor usable
+                if isinstance(ind, list):
+                    # Opción 1: Suma de los elementos
+                    fitness_value = self.fitness_func(sum(ind))
+                    # Alternativa - si necesitas aplicar la función a cada elemento:
+                    # fitness_value = sum(self.fitness_func(x) for x in ind)
+                else:
+                    # Si no es una lista, usarlo directamente
+                    fitness_value = self.fitness_func(ind)
+                fitnesses.append(fitness_value)
 
             best_fitness = max(fitnesses)
             best_history.append(best_fitness)
@@ -136,6 +145,13 @@ class GA:
             if self.on_generation:
                 self.on_generation(generation, self.population, best_fitness)
 
-        final_fitnesses = [self.fitness_func(ind) for ind in self.population]
+        # Calcular fitness final usando el mismo método adaptado
+        final_fitnesses = []
+        for ind in self.population:
+            if isinstance(ind, list):
+                fitness_value = self.fitness_func(sum(ind))
+            else:
+                fitness_value = self.fitness_func(ind)
+            final_fitnesses.append(fitness_value)
         best_index = final_fitnesses.index(max(final_fitnesses))
         return self.population[best_index], final_fitnesses[best_index]
