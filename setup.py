@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
 
-from setuptools import setup, find_packages
 
 with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
     name="ml-gen-alg",
-    version="1.0.0",
+    version="1.0.1",
     author="Yamid Quiroga",
     author_email="yfquiroga@ucundinamarca.edu.co",
     description="Una librería de algoritmos genéticos en Python",

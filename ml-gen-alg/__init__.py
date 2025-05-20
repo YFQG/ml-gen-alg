@@ -1,1 +1,1 @@
-from .functions.operations import *
+from ga import GA
