@@ -6,13 +6,13 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="ml-gen-alg",
-    version="1.0.2",
-    author="Yamid Quiroga",
+    version="1.0.5",
+    author="Nicolas Torres & Yamid Quiroga",
     author_email="yfquiroga@ucundinamarca.edu.co",
     description="Una librería de algoritmos genéticos en Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/tuusuario/mi_libreria_genetica",  # Reemplaza con tu URL real
+    url="https://github.com/YFQG/ml-gen-alg",  # Reemplaza con tu URL real
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

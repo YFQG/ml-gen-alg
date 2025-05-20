@@ -1,5 +1,5 @@
 import random
-from .functions import operations
+from ml_gen_alg.functions import operations
 
 class GA:
     def __init__(
@@ -112,7 +112,11 @@ class GA:
         best_history = []
 
         for generation in range(self.num_generations):
-            fitnesses = [self.fitness_func(ind) for ind in self.population]
+            try:
+                fitnesses = [self.fitness_func(ind) for ind in self.population]
+            except TypeError:
+                fitnesses = [self.fitness_func(ind, idx) for idx, ind in enumerate(self.population)]
+
             best_fitness = max(fitnesses)
             best_history.append(best_fitness)
 
