@@ -20,6 +20,7 @@ class GA:
         keep_parents=2,
         on_generation=None,
         stop_criteria=None,
+        maximize=True,
     ):
         self.fitness_func = fitness_func
         self.num_generations = num_generations
@@ -37,6 +38,7 @@ class GA:
         self.keep_parents = keep_parents
         self.on_generation = on_generation
         self.stop_criteria = stop_criteria
+        self.maximize = maximize
 
         self.population = self._initialize_population()
 
@@ -126,7 +128,7 @@ class GA:
                     fitness_value = self.fitness_func(ind)
                 fitnesses.append(fitness_value)
 
-            best_fitness = max(fitnesses)
+            best_fitness = max(fitnesses) if self.maximize else min(fitnesses)
             best_history.append(best_fitness)
 
             if self._check_stopping(best_fitness, generation, best_history):
